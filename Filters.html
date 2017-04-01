@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js</title>
+  </head>
+  <body>
+    <!-- 1. Filtros  -->
+    <div id="app">
+      <h1>{{ titulo | uppercase }}</h1>
+      <h2>{{ subtitulo | lowercase }}</h2>
+      <h3>{{ secsubtitulo | loquequiera }} </h3>
+      <!-- Podemos usar varios filtros al tiempo convinarlos si queremos. -->
+      <h4> {{ titulo | uppercase | loquequiera | lowercase | capitalize}} </h4>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let app = new Vue({
+        el: '#app',
+        data: {
+          titulo: 'titulo',
+          subtitulo: 'subtitulo',
+          secsubtitulo: 'otra cosa de'
+        },
+        filters: {
+          uppercase: function (str) { return str.toUpperCase() },
+          lowercase: function (str) { return str.toLowerCase() },
+          capitalize: function(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+          },
+          loquequiera: function (str) { return str + ' lo que queremos' }
+        }
+      })
+    </script>
+  </body>
+</html>
