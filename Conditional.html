@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js</title>
+  </head>
+  <body>
+    <!-- 1. directiva v-if -->
+    <!--
+    <div id="app
+    -->
+      <!-- Directiva para generar una condición y decuerdo
+           a su valor se decide insertar o eliminar el elemento, dando
+           por resultado: true(insertado), false(eliminado)  -->
+    <!--
+      <a v-if="mostrar" :href="url" target="_blank"> Ir a {{ pagina }}</a>
+    </div>
+    -->
+
+    <!-- 2. template  -->
+    <!--
+      Vue.js utiliza una sintaxis de plantilla basada en HTML
+      que le permite declarativamente enlazar el DOM procesado
+      con los datos de la instancia de Vue subyacente.
+      Todas las plantillas de Vue.js son HTML válido que puede
+      ser analizado por navegadores compatibles con especificaciones
+      y analizadores de HTML.
+
+      Vue compila las plantillas en funciones de renderización de DOM virtual.
+      Combinado con el sistema de reactividad, Vue es capaz de calcular
+      inteligentemente la cantidad mínima de componentes para volver a
+      representar y aplicar la cantidad mínima de manipulaciones DOM
+      cuando cambia el estado de la aplicación.
+    -->
+    <!--
+    <div id="app">
+      <template v-if="mostrar">
+        <h1>Este es mi título</h1>
+        <h2>Este es mi subtítulo</h2>
+        <a :href="url" target="_blank"> Ir a {{ pagina }}</a>
+      </template>
+    </div>
+    -->
+
+    <!-- 3. directiva v-show -->
+    <!--
+      Coloca el atributo css display none style="display: none;"
+      sobre el selector en el que es llamado la directiva.
+    -->
+
+    <!--
+      Nota:
+
+        v-if  : render inicial
+        v-show: Interacción del usuario
+    -->
+    <div id="app">
+      <div v-show="mostrar">
+        <h1>Este es mi título</h1>
+        <h2>Este es mi subtítulo</h2>
+        <a :href="url" target="_blank"> Ir a {{ pagina }}</a>
+      </div>
+      <div v-show="!mostrar">
+        Esto está oculto
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let app = new Vue({
+        el: '#app',
+        data: {
+          nombre: 'Mundo!',
+          url: 'https://google.com',
+          pagina: 'Google',
+          mostrar: true
+        }
+      })
+    </script>
+  </body>
+</html>
