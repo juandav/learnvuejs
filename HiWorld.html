@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js</title>
+  </head>
+  <body>
+    <div id="app">
+      Hola {{ nombre }}
+      <!-- v-bind :=> Esta es una directiva que permita colocar
+      variables dentro de los parametros de una etiqueta html. -->
+      <!-- Forma larga -->
+        <!-- <a v-bind:href="url" target="_blank"> Ir a {{ pagina }}</a> -->
+      <!-- Forma Corta -->
+        <a :href="url" target="_blank"> Ir a {{ pagina }}</a>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      // app.nombre => Muestra el valor que este.
+      // Como esta reactivo puedo cambiar el valor de la variable
+      // y automaticamente este cambia.
+
+      // app.nombre = "Juan" en la consola, este de
+      // manera reactiva presenta los cambios en el
+      // navegador
+      let app = new Vue({
+        el: '#app',
+        data: {
+          nombre: 'Mundo!',
+          url: 'https://google.com',
+          pagina: 'Google'
+        }
+      })
+
+      // VueJS nos permite escribir la logica de la aplicación
+      // y si algo cambia este nos permite ver representado los
+      // cambios de manera inmediata
+    </script>
+  </body>
+</html>
