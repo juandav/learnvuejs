@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js</title>
+  </head>
+  <body>
+    <div id="app">
+      <!--
+        Vue también proporciona la directiva "v-model" que hace
+        que la vinculación bidireccional entre la entrada del formulario
+        y el estado de la aplicación sea mas facil.
+      -->
+      <input type="text" name="nombre" v-model="nombre">
+      <p>Tu nombre  en mayuscula es: {{ nombre | uppercase }}</p>
+
+      <!-- v-on:submit.prevent hace que no se ejecute la
+          funcionalidad principal del navegador de recargar en
+          formularios y en parche a esto se ejecute funcionalidades
+          de vuejs
+      -->
+           <!-- @submit.prevent -->
+      <form v-on:submit.prevent="submit">
+        <h2>¿Cuáles son tus cursos favoritos?</h2>
+        <input v-model="cursos" type="checkbox" id="vue" value="vue">
+        <!-- debe coincidir el for con el id del input checkbox -->
+        <label for="vue">Curso de Vue.js</label>
+
+        <input v-model="cursos" type="checkbox" id="seo" value="seo">
+        <label for="seo">Curso de SEO</label>
+
+        <input v-model="cursos" type="checkbox" id="react" value="react">
+        <label for="react">Curso de React y Redux</label>
+
+        <input v-model="cursos" type="checkbox" id="growth" value="growth">
+        <label for="growth">Curso de Growth Marketing</label>
+
+        <button type="submit"> Enviar </button>
+      </form>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let app = new Vue({
+        el: '#app',
+        data: {
+          nombre: '',
+          cursos: []
+        },
+        filters: {
+          uppercase: function (str) {
+            return str.toUpperCase()
+          }
+        },
+        methods: {
+          submit: function () {
+            console.log('submit')
+            console.log(this.cursos)
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
