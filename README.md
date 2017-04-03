@@ -1,5 +1,7 @@
 # Instrucciones
 
+## LifeCycle
+  ![Con titulo](./lifecycle.png "lifecycle")
 ## Librerias
 
 * **webpack-simple:** Es un template base de un proyecto iniciar de vuejs.
