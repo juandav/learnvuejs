@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js</title>
+  </head>
+  <body>
+    <div id="app">
+      <form @submit.prevent="submit">
+        <h2> ¿Cuáles son tus cursos favoritos? </h2>
+        <template v-for="curso in cursos">
+          <input v-model="cursosSeleccionados" type="checkbox" v-bind:id="curso.value" v-bind:value="curso.value" >
+          <label v-bind:for="curso.value"> {{ curso.nombre }} </label>
+        </template>
+        <button type="submit"> Enviar </button>
+      </form>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let app = new Vue({
+        el: '#app',
+        data: {
+          cursos:[
+            { nombre: 'Curso de Introducción a Vue.js', value: 'vue' },
+            { nombre: 'Curso de seo', value: 'seo'  },
+            { nombre: 'Curso de React y Redux', value: 'react' },
+            { nombre: 'Curso de Growth Marketing', value: 'growth' }
+          ],
+          cursosSeleccionados:[]
+        },
+        methods: {
+          submit: function () {
+            console.log(this.cursosSeleccionados)
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
